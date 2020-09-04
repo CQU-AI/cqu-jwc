@@ -1,12 +1,12 @@
-# cqu-jwc
+# cqu-jxgl
 
 [![cqu-tool-bucket](https://img.shields.io/badge/CQU-%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6%E5%85%A8%E5%AE%B6%E6%A1%B6%E8%AE%A1%E5%88%92-blue)](https://github.com/topics/cqu-tool-bucket)
-![Liscence](https://img.shields.io/github/license/CQU-AI/cqu-jwc)
-[![pypi](https://img.shields.io/pypi/v/cqu-jwc)](https://pypi.org/project/cqu-jwc/)
-![download](https://pepy.tech/badge/cqu-jwc)
-![Upload Python Package](https://github.com/CQU-AI/cqu-jwc/workflows/Upload%20Python%20Package/badge.svg)
+![Liscence](https://img.shields.io/github/license/CQU-AI/cqu-jxgl)
+[![pypi](https://img.shields.io/pypi/v/cqu-jxgl)](https://pypi.org/project/cqu-jxgl/)
+![download](https://pepy.tech/badge/cqu-jxgl)
+![Upload Python Package](https://github.com/CQU-AI/cqu-jxgl/workflows/Upload%20Python%20Package/badge.svg)
 
-cqu-jwc 是一个基于python3的，重庆大学教务处登录的第三方模块。
+cqu-jxgl 是一个基于python3的，重庆大学教务处登录的第三方模块。
 
 ## 特性
 

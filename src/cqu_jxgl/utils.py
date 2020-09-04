@@ -6,8 +6,8 @@ from datetime import datetime
 
 import requests
 
-from cqu_jwc.config.config import config
-from cqu_jwc.version import __version__
+from cqu_jxgl.config.config import config
+from cqu_jxgl.version import __version__
 
 ERROR_COUNT = 0
 

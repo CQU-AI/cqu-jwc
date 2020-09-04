@@ -13,7 +13,7 @@ with (source_root / "README.md").open(encoding="utf-8") as f:
 with (source_root / "requirements.txt").open(encoding="utf8") as f:
     requirements = f.readlines()
 
-with (source_root / "src" / "cqu_jwc" / "version.py").open(
+with (source_root / "src" / "cqu_jxgl" / "version.py").open(
         "w", encoding="utf-8"
 ) as f:
     f.writelines(
@@ -25,14 +25,14 @@ with (source_root / "src" / "cqu_jwc" / "version.py").open(
     )
 
 setup(
-    name="cqu-jwc",
+    name="cqu-jxgl",
     version=version,
     description="第三方重庆大学教务处登录模块",
     author='maxoyed',
     author_email='maxoyed@gmail.com',
     maintainer="CQU-AI",
     maintainer_email="peter@mail.loopy.tech",
-    url="https://github.com/CQU-AI/cqu-jwc",
+    url="https://github.com/CQU-AI/cqu-jxgl",
     license="GPL License",
     packages=find_packages("src"),
     package_dir={"": "src"},

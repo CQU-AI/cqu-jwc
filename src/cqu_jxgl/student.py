@@ -2,8 +2,8 @@ import hashlib
 
 import requests
 
-from cqu_jwc.config import config
-from cqu_jwc.utils import check_user, log, reset_error_count
+from cqu_jxgl.config import config
+from cqu_jxgl.utils import check_user, log, reset_error_count
 
 
 class Student(object):
