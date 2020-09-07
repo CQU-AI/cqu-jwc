@@ -39,8 +39,8 @@ def reset_error_count():
 
 def check_user():
     if (
-            config["user_info"]["username"] is None
-            or config["user_info"]["password"] is None
+        config["user_info"]["username"] is None
+        or config["user_info"]["password"] is None
     ):
         print("未找到有效的帐号和密码，请输入你的帐号和密码，它们将被保存在你的电脑上以备下次使用")
         try:
@@ -55,10 +55,12 @@ def check_user():
 
 def check_update(project_name):
     try:
-        content = requests.get(f"https://pypi.org/project/{project_name}/").content.decode()
-        latest_version = re.findall(project_name + r" \d{1,2}\.\d{1,2}\.\d{1,2}", content)[
-            0
-        ].lstrip(project_name + " ")
+        content = requests.get(
+            f"https://pypi.org/project/{project_name}/"
+        ).content.decode()
+        latest_version = re.findall(
+            project_name + r" \d{1,2}\.\d{1,2}\.\d{1,2}", content
+        )[0].lstrip(project_name + " ")
         if latest_version.split(".") > __version__.split("."):
             log(
                 f"{project_name}的最新版本为{latest_version}，当前安装的是{__version__}，建议使用`pip install {project_name} -U`来升级",
