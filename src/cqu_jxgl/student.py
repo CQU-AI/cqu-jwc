@@ -57,9 +57,18 @@ class Student(object):
                 headers=headers,
                 proxies=student.proxies,
             )
-            if "账号或密码不正确！请重新输入。" in response.text:
+            if "正在加载权限数据" in response.text:
+                return response, session
+            elif "账号或密码不正确！请重新输入。" in response.text:
                 raise ValidationError("账号或密码不正确！请重新输入。")
-            return response, session
+            elif "账号或密码不正确！请重新输入。" in response.text:
+                raise ValidationError("账号或密码不正确！请重新输入。")
+            elif "该账号尚未分配角色!" in response.text:
+                raise ValidationError("无此帐号。")
+            elif "alert('您尚未报到注册成功，请到学院咨询并办理相关手续！" in response.text:
+                raise ValidationError("此帐号尚未注册成功")
+            else:
+                raise ValidationError("意料之外的登陆返回页面")
 
         res, s = _login(self)
         while res.status_code != 200 and config["behavior"]["unlimited_retry"]:
