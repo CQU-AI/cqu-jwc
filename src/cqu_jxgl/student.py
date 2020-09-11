@@ -8,6 +8,8 @@ from cqu_jxgl.config import config
 from cqu_jxgl.exceptions import ValidationError
 from cqu_jxgl.utils import check_user, log, reset_error_count
 
+from bs4 import BeautifulSoup as BS
+
 
 class Student(object):
     def __encrypt_passwd(self):
@@ -57,9 +59,17 @@ class Student(object):
                 headers=headers,
                 proxies=student.proxies,
             )
-            if "账号或密码不正确！请重新输入。" in response.text:
-                raise ValidationError("账号或密码不正确！请重新输入。")
-            return response, session
+            span = BS(response.content, features="lxml").find("span", id="divLogNote")
+            if span is None:
+                if  "alert('您尚未报到注册成功，请到学院咨询并办理相关手续！" in response.text:
+                    raise ValidationError("此帐号尚未注册成功")
+                else:
+                    raise ValidationError("意料之外的登陆返回页面")
+            else:
+                if "正在加载权限数据" in span.text:
+                    return response, session
+                else:
+                    raise ValidationError(span.text)
 
         res, s = _login(self)
         while res.status_code != 200 and config["behavior"]["unlimited_retry"]:
